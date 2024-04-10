@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
         Log.d("LOL", "Key: '$lastKey', message: '$lastMessage'")
     }
 
+    override fun onDestroy() {
+        unregisterReceiver(receiver)
+        super.onDestroy()
+    }
+
     companion object {
         const val SURF_ACTION = "ru.shalkoff.vsu_lesson2_2024.SURF_ACTION"
         const val SURF_PROVIDER_URI_STRING = "content://dev.surf.android.provider/text"
